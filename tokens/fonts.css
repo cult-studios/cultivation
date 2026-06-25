@@ -1,0 +1,14 @@
+/* ============================================================
+   Cult Studios — Fonts
+   All faces are Google-hosted webfonts (no substitutions).
+   Fraunces is the house display face used across every product.
+   ------------------------------------------------------------
+   Fraunces      — display / serif (the consistent thread)
+   DM Sans       — Neurospicy app UI body
+   Outfit        — Neurospicy marketing body
+   Inter         — Cultivation body
+   Space Mono    — mono accents (timestamps, labels) — app
+   IBM Plex Mono — mono accents — marketing
+   Caveat        — handwritten journal / cozy accent
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@400;500;600;700&display=swap');

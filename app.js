@@ -127,7 +127,7 @@ const CHARACTERS = [{
 }];
 const SOCIAL = [["bsky", "Bluesky"], ["discord", "Discord"], ["instagram", "Instagram"], ["youtube", "YouTube"]];
 function Nav() {
-  const links = ["Home", "Game", "Characters", "Journal", "Shop"];
+  const links = [["Home", "#"], ["Game", "#"], ["Characters", "#neighbors"], ["Journal", "journal.html"], ["Shop", "#"]];
   return /*#__PURE__*/React.createElement("header", {
     style: {
       position: "sticky",
@@ -168,9 +168,9 @@ function Nav() {
       gap: 26,
       alignItems: "center"
     }
-  }, links.map((l, i) => /*#__PURE__*/React.createElement("a", {
+  }, links.map(([l, href], i) => /*#__PURE__*/React.createElement("a", {
     key: l,
-    href: "#",
+    href: href,
     style: {
       textDecoration: "none",
       color: i === 4 ? CREAM : BODY,

@@ -1,22 +1,6 @@
-# Cultivation — marketing site
+# Cultivation marketing site
 
-Static single-page site. **No build step, no Babel** — the JSX is already compiled to plain JS in `app.js`.
-
-You have two ways to use this:
-
-## Option A — host the folder (recommended for GitHub Pages / Netlify / Vercel)
-Push this whole folder to a repo and serve it. `index.html` is the entry point.
-- Loads React from a CDN and fonts from Google Fonts (needs internet).
-- All other assets (CSS, doodles, icons, suspicion-meter image) are local.
-
-Local preview:
-
-    python3 -m http.server 8000   # then open http://localhost:8000
-
-## Option B — the fully-offline single file
-`Cultivation-offline.html` has **everything inlined** — React, CSS, fonts, and every image.
-- No CDN, no internet, no server required.
-- Open it by double-clicking, email it, or drop it on any host as-is.
+Static single-page site.  JSX is already compiled to plain JS in `app.js`.
 
 ## Editing later
 1. Edit `site.jsx` (the readable source).

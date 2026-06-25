@@ -1,5 +1,5 @@
-// Cultivation marketing site — PRE-COMPILED (no Babel needed at runtime)
-// Source: site.jsx, transpiled with @babel/preset-react. Edit site.jsx and recompile if you change anything.
+// Cultivation marketing site 
+// Source: site.jsx, transpiled with @babel/preset-react. 
 // Cozy farming + soft-occult life sim set in Sagebrook, the Whisperwood Hollow.
 const {
   useState

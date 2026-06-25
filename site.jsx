@@ -1,5 +1,5 @@
 // Cultivation marketing site UI kit
-// Cozy farming + soft-occult life sim set in Hollowbend, the Whispering Vale.
+// Cozy farming + soft-occult life sim set in Sagebrook, Whisperwood Hollow.
 // Dark, glowing "enchanted forest at night" treatment: deep forest base, bioluminescent
 // teal + mushroom-purple glow, warm lantern gold, green energy. No emoji, hand-drawn doodles only.
 const { useState } = React;
@@ -48,9 +48,9 @@ function Doodle({ name, size = 26, tint = "teal", glow = false, style = {} }) {
 
 const FEATURES = [
   { doodle: "leaf",   tint: "teal",    title: "Farm life", text: "Tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep in the greenhouse). Every harvest is a small, smug victory." },
-  { doodle: "hearts", tint: "magenta", title: "Community", text: "Hollowbend is full of warm, funny, deeply nosy people. Win them over for recipes, gossip, friendship, and the occasional alibi." },
+  { doodle: "hearts", tint: "magenta", title: "Community", text: "Sagebrook is full of warm, funny, deeply nosy people. Win them over for recipes, gossip, friendship, and the occasional alibi." },
   { doodle: "gem",    tint: "gold",    title: "Trade & craft", text: "Dry, brew, infuse, and roll your harvest into something worth selling, through the shop, the café, or a guy named Marlow." },
-  { doodle: "moon",   tint: "purple",  title: "The Vale", text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. The Whispering Vale is older than the town, and it's paying attention." },
+  { doodle: "moon",   tint: "purple",  title: "The Vale", text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention." },
 ];
 
 const CHARACTERS = [
@@ -59,7 +59,7 @@ const CHARACTERS = [
   { doodle: "star",    tint: "blue",    name: "Officer Buzz", role: "law · cynic · secret softie", text: "Deadpan, perpetually stressed, and slowly realizing not all plants are the enemy. World's Okayest Cop." },
   { doodle: "sparkle", tint: "purple",  name: "Twig", role: "forest dweller · fungal lorekeeper", text: "Cryptic, barefoot, and ...mostly human. Speaks in riddles and communes with mushrooms that don't have names yet." },
   { doodle: "moon",    tint: "magenta", name: "Marlow", role: "dealer · philosopher · friend", text: "Smooth-talking buyer who lives in the gray areas. Shadier than he looks, more loyal than he lets on." },
-  { doodle: "crown",   tint: "teal",    name: "The D.A.R.E. Kids", role: "junior detectives · comic foil", text: "Four earnest kids who think they're mini cops, patrolling Hollowbend for 'criminals' and finding suspects absolutely everywhere. Adorable, dramatic, mostly ineffective." },
+  { doodle: "crown",   tint: "teal",    name: "The D.A.R.E. Kids", role: "junior detectives · comic foil", text: "Four earnest kids who think they're mini cops, patrolling Sagebrook for 'criminals' and finding suspects absolutely everywhere. Adorable, dramatic, mostly ineffective." },
 ];
 
 const SOCIAL = [
@@ -107,7 +107,7 @@ function Hero() {
         <h1 style={{ fontFamily: serif, fontSize: "clamp(48px, 8vw, 90px)", fontWeight: 600, color: CREAM, margin: 0, lineHeight: 0.98, textShadow: `0 0 34px ${TEAL}40, 0 0 60px ${PURPLE}30` }}>Cultivation</h1>
         <p style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, color: GOLD, marginTop: 14, textShadow: `0 0 16px ${GOLD}44` }}>grow your story, one seed at a time</p>
         <p style={{ fontFamily: sans, fontSize: 17, color: BODY, maxWidth: 588, margin: "20px auto 14px", lineHeight: 1.65 }}>
-          You never thought you'd be the caretaker of a scrappy little farm on the edge of <strong style={{ color: CREAM }}>Hollowbend</strong>, a small town in the Whispering Vale where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice.
+          You never thought you'd be the caretaker of a scrappy little farm on the edge of <strong style={{ color: CREAM }}>Sagebrook</strong>, a small town in Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice.
         </p>
         <div style={{ marginBottom: 32 }}><HandNote style={{ transform: "rotate(-3deg)", display: "inline-block" }}>grow a life. make some friends. try not to attract attention.</HandNote></div>
         <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
@@ -165,7 +165,7 @@ function Characters() {
   return (
     <section id="neighbors" style={{ padding: "78px 24px", background: `radial-gradient(55% 55% at 85% 10%, ${PURPLE}1c, transparent 62%), ${NIGHT}` }}>
       <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-        <SectionHead kicker="the cast" kickerColor={PURPLE} title="meet the neighbors" sub="Warm, funny, flawed, and a little strange. Everyone in Hollowbend has a secret, and most of them involve your farm." />
+        <SectionHead kicker="the cast" kickerColor={PURPLE} title="meet the neighbors" sub="Warm, funny, flawed, and a little strange. Everyone in Sagebrook has a secret, and most of them involve your farm." />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
           {CHARACTERS.map(c => (
             <Lift key={c.name} radius={18} pad={24} glow={GLOW[c.tint]}>
@@ -191,7 +191,7 @@ function Journal() {
   const posts = [
     "Designing a town where everyone has a secret",
     "Marlow, and writing a bad influence you actually trust",
-    "The Whispering Vale: cozy, but make it uncanny",
+    "Whisperwood Hollow: cozy, but make it uncanny",
   ];
   return (
     <section style={{ padding: "78px 24px", background: `radial-gradient(45% 55% at 50% 0%, ${GOLD}12, transparent 60%), ${NIGHT2}` }}>
@@ -219,7 +219,7 @@ function AfterDark() {
       <div style={{ maxWidth: 1000, margin: "0 auto", position: "relative" }}>
         <div style={{ textAlign: "center", marginBottom: 14 }}>
           <p style={{ fontFamily: mono, fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: GOLD, margin: "0 0 11px", textShadow: `0 0 12px ${GOLD}66` }}>after the market closes</p>
-          <h2 style={{ fontFamily: serif, fontSize: 40, fontWeight: 600, color: CREAM, margin: 0, textShadow: `0 0 28px ${PURPLE}44` }}>Hollowbend after dark</h2>
+          <h2 style={{ fontFamily: serif, fontSize: 40, fontWeight: 600, color: CREAM, margin: 0, textShadow: `0 0 28px ${PURPLE}44` }}>Sagebrook after dark</h2>
           <p style={{ fontFamily: sans, fontSize: 16, color: BODY, maxWidth: 600, margin: "14px auto 0", lineHeight: 1.65 }}>
             When the string lights come on, the café keeps brewing, the back alley opens for business, and the woods begin to glow. Cozy, never grim, just a little uncanny.
           </p>
@@ -269,7 +269,7 @@ function Footer() {
         <Doodle name="leaf" size={20} tint="teal" glow /> Cultivation
       </div>
       <p style={{ fontFamily: sans, fontSize: 14, color: BODY, maxWidth: 480, margin: "0 auto 24px", lineHeight: 1.6 }}>
-        Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Hollowbend and the Whispering Vale.
+        Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow.
       </p>
       <div style={{ display: "flex", justifyContent: "center", gap: 14, marginBottom: 24 }}>
         {SOCIAL.map(([f, label]) => (

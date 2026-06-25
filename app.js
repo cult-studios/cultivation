@@ -286,7 +286,7 @@ function Hero() {
       lineHeight: 0.98,
       textShadow: `0 0 34px ${TEAL}40, 0 0 60px ${PURPLE}30`
     }
-  }, "Cultivation"), /*#__PURE__*/React.createElement("p", {
+  }, "cultivation"), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: serif,
       fontStyle: "italic",

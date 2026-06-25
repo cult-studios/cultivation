@@ -70,60 +70,60 @@ function Doodle({
 const FEATURES = [{
   doodle: "leaf",
   tint: "teal",
-  title: "Farm life",
-  text: "Tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep in the greenhouse). Every harvest is a small, smug victory."
+  title: "farm life",
+  text: "tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep in the greenhouse). every harvest is a small, smug victory."
 }, {
   doodle: "hearts",
   tint: "magenta",
-  title: "Community",
-  text: "Sagebrook is full of warm, funny, deeply nosy people. Win them over for recipes, gossip, friendship, and the occasional alibi."
+  title: "community",
+  text: "Sagebrook is full of warm, funny, deeply nosy people. win them over for recipes, gossip, friendship, and the occasional alibi."
 }, {
   doodle: "gem",
   tint: "gold",
-  title: "Trade & craft",
-  text: "Dry, brew, infuse, and roll your harvest into something worth selling, through the shop, the café, or a guy named Marlow."
+  title: "trade & craft",
+  text: "dry, brew, infuse, and roll your harvest into something worth selling, through the shop, the café, or a guy named Marlow."
 }, {
   doodle: "moon",
   tint: "purple",
-  title: "The Hollow",
-  text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention."
+  title: "the Hollow",
+  text: "glowing fungi. instructive dreams. forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention."
 }];
 const CHARACTERS = [{
   doodle: "flower",
   tint: "gold",
   name: "Granma Gem",
   role: "mentor · herbalist · baker",
-  text: "Sweet, spacey ex-hippie with a secret wild past and suspiciously specific memories from the 70s. Will absolutely feed you."
+  text: "sweet, spacey ex-hippie with a secret wild past and suspiciously specific memories from the 70s. she will absolutely feed you."
 }, {
   doodle: "leaf",
   tint: "teal",
   name: "Maple",
-  role: "tea alchemist · they/them",
-  text: "Runs The Drowsy Leaf. Brews tea, comfort, and the occasional mind-expanding concoction for dreamers and night owls."
+  role: "tea alchemist · night owl",
+  text: "runs The Drowsy Leaf cafe where they brew tea, comfort, and the occasional mind-expanding concoction for dreamers and night owls."
 }, {
   doodle: "star",
   tint: "blue",
   name: "Officer Buzz",
   role: "law · cynic · secret softie",
-  text: "Deadpan, perpetually stressed, and slowly realizing not all plants are the enemy. World's Okayest Cop."
+  text: "deadpan and perpetually stressed, he's slowly realizing not all plants are the enemy. world's okayest cop."
 }, {
   doodle: "sparkle",
   tint: "purple",
   name: "Twig",
-  role: "forest dweller · fungal lorekeeper",
-  text: "Cryptic, barefoot, and ...mostly human. Speaks in riddles and communes with mushrooms that don't have names yet."
+  role: "forest dweller · mysterious",
+  text: "cryptic, barefoot, and ...mostly human. they speak in riddles and commune with mushrooms that don't have names yet."
 }, {
   doodle: "moon",
   tint: "magenta",
   name: "Marlow",
-  role: "dealer · philosopher · friend",
-  text: "Smooth-talking buyer who lives in the gray areas. Shadier than he looks, more loyal than he lets on."
+  role: "dealer · philosopher · friend?",
+  text: "smooth-talking buyer who lives in the gray areas. he's shadier than he looks, more loyal than he lets on."
 }, {
   doodle: "crown",
   tint: "teal",
   name: "The D.A.R.E. Kids",
   role: "junior detectives · comic foil",
-  text: "Four earnest kids who think they're mini cops, patrolling Sagebrook for 'criminals' and finding suspects absolutely everywhere. Adorable, dramatic, mostly ineffective."
+  text: "four earnest kids who think they're mini cops, patrolling Sagebrook for 'criminals' and finding suspects absolutely everywhere. they're adorable, dramatic, mostly ineffective."
 }];
 const SOCIAL = [["bsky", "Bluesky"], ["discord", "Discord"], ["instagram", "Instagram"], ["youtube", "YouTube"]];
 function Nav() {
@@ -304,11 +304,11 @@ function Hero() {
       margin: "20px auto 14px",
       lineHeight: 1.65
     }
-  }, "You never thought you'd be the caretaker of a scrappy little farm on the edge of ", /*#__PURE__*/React.createElement("strong", {
+  }, "you never thought you'd be the caretaker of a scrappy little farm on the edge of ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: CREAM
     }
-  }, "Sagebrook"), ", a small town in the Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice."), /*#__PURE__*/React.createElement("div", {
+  }, "Sagebrook"), ", a small town in Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice."), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
@@ -467,7 +467,7 @@ function Characters() {
     kicker: "the cast",
     kickerColor: PURPLE,
     title: "meet the neighbors",
-    sub: "Warm, funny, flawed, and a little strange. Everyone in Sagebrook has a secret, and most of them involve your farm."
+    sub: "warm, funny, flawed, and a little strange. everyone in Sagebrook has a secret, and most of them involve your farm."
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
@@ -532,7 +532,7 @@ function Characters() {
   }, c.text))))));
 }
 function Journal() {
-  const posts = ["Designing a town where everyone has a secret", "Marlow, and writing a bad influence you actually trust", "The Whisperwood Hollow: cozy, but make it uncanny"];
+  const posts = ["designing a town where everyone has a secret", "Marlow, and writing a bad influence you actually trust", "Whisperwood Hollow: cozy, but make it uncanny"];
   return /*#__PURE__*/React.createElement("section", {
     style: {
       padding: "78px 24px",
@@ -630,7 +630,7 @@ function AfterDark() {
       margin: "14px auto 0",
       lineHeight: 1.65
     }
-  }, "When the string lights come on, the caf\xE9 keeps brewing, the back alley opens for business, and the woods begin to glow. Cozy, never grim, just a little uncanny.")), /*#__PURE__*/React.createElement("p", {
+  }, "when the string lights come on, the caf\xE9 keeps brewing, the back alley opens for business, and the woods begin to glow. cozy, never grim, just a little uncanny.")), /*#__PURE__*/React.createElement("p", {
     style: {
       textAlign: "center",
       marginBottom: 46
@@ -662,7 +662,7 @@ function AfterDark() {
       color: CREAM,
       margin: "0 0 6px"
     }
-  }, "Play it cozy."), /*#__PURE__*/React.createElement("p", {
+  }, "play it cozy."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: sans,
       fontSize: 15,
@@ -670,14 +670,14 @@ function AfterDark() {
       lineHeight: 1.6,
       margin: "0 0 24px"
     }
-  }, "Grow, craft, and sell at your own pace. No cops, no consequences, no stress. Just you, the dirt, and good company."), /*#__PURE__*/React.createElement("h3", {
+  }, "grow, craft, and sell at your own pace. no cops, no consequences, no stress. just you, the dirt, and good company."), /*#__PURE__*/React.createElement("h3", {
     style: {
       fontFamily: serif,
       fontSize: 23,
       color: CREAM,
       margin: "0 0 6px"
     }
-  }, "Or take the risk."), /*#__PURE__*/React.createElement("p", {
+  }, "or take the risk."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: sans,
       fontSize: 15,
@@ -685,7 +685,7 @@ function AfterDark() {
       lineHeight: 1.6,
       margin: 0
     }
-  }, "Switch on a mode where not everything you grow is strictly legal, and a suspicion system means nosy neighbors (and the law) start to notice.")), /*#__PURE__*/React.createElement("div", {
+  }, "switch on a mode where not everything you grow is strictly legal, and a suspicion system means nosy neighbors (and the law) start to notice.")), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center"
     }
@@ -799,7 +799,7 @@ function Footer() {
       margin: "0 auto 24px",
       lineHeight: 1.6
     }
-  }, "Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Sagebrook and the Whisperwood Hollow."), /*#__PURE__*/React.createElement("div", {
+  }, "currently growing in Unreal Engine 5. a cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       justifyContent: "center",

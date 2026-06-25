@@ -47,19 +47,19 @@ function Doodle({ name, size = 26, tint = "teal", glow = false, style = {} }) {
 }
 
 const FEATURES = [
-  { doodle: "leaf",   tint: "teal",    title: "Farm life", text: "Tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep in the greenhouse). Every harvest is a small, smug victory." },
-  { doodle: "hearts", tint: "magenta", title: "Community", text: "Sagebrook is full of warm, funny, deeply nosy people. Win them over for recipes, gossip, friendship, and the occasional alibi." },
-  { doodle: "gem",    tint: "gold",    title: "Trade & craft", text: "Dry, brew, infuse, and roll your harvest into something worth selling, through the shop, the café, or a guy named Marlow." },
-  { doodle: "moon",   tint: "purple",  title: "The Hollow", text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention." },
+  { doodle: "leaf",   tint: "teal",    title: "farm life", text: "tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep in the greenhouse). every harvest is a small, smug victory." },
+  { doodle: "hearts", tint: "magenta", title: "community", text: "Sagebrook is full of warm, funny, deeply nosy people. win them over for recipes, gossip, friendship, and the occasional alibi." },
+  { doodle: "gem",    tint: "gold",    title: "trade & craft", text: "dry, brew, infuse, and roll your harvest into something worth selling, through the shop, the café, or a guy named Marlow." },
+  { doodle: "moon",   tint: "purple",  title: "the Hollow", text: "glowing fungi. instructive dreams. forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention." },
 ];
 
 const CHARACTERS = [
-  { doodle: "flower",  tint: "gold",    name: "Granma Gem", role: "mentor · herbalist · baker", text: "Sweet, spacey ex-hippie with a secret wild past and suspiciously specific memories from the 70s. Will absolutely feed you." },
-  { doodle: "leaf",    tint: "teal",    name: "Maple", role: "tea alchemist · they/them", text: "Runs The Drowsy Leaf. Brews tea, comfort, and the occasional mind-expanding concoction for dreamers and night owls." },
-  { doodle: "star",    tint: "blue",    name: "Officer Buzz", role: "law · cynic · secret softie", text: "Deadpan, perpetually stressed, and slowly realizing not all plants are the enemy. World's Okayest Cop." },
-  { doodle: "sparkle", tint: "purple",  name: "Twig", role: "forest dweller · fungal lorekeeper", text: "Cryptic, barefoot, and ...mostly human. Speaks in riddles and communes with mushrooms that don't have names yet." },
-  { doodle: "moon",    tint: "magenta", name: "Marlow", role: "dealer · philosopher · friend", text: "Smooth-talking buyer who lives in the gray areas. Shadier than he looks, more loyal than he lets on." },
-  { doodle: "crown",   tint: "teal",    name: "The D.A.R.E. Kids", role: "junior detectives · comic foil", text: "Four earnest kids who think they're mini cops, patrolling Sagebrook for 'criminals' and finding suspects absolutely everywhere. Adorable, dramatic, mostly ineffective." },
+  { doodle: "flower",  tint: "gold",    name: "Granma Gem", role: "mentor · herbalist · baker", text: "sweet, spacey ex-hippie with a secret wild past and suspiciously specific memories from the 70s. she will absolutely feed you." },
+  { doodle: "leaf",    tint: "teal",    name: "Maple", role: "tea alchemist · night owl", text: "runs The Drowsy Leaf cafe where they brew tea, comfort, and the occasional mind-expanding concoction for dreamers and night owls." },
+  { doodle: "star",    tint: "blue",    name: "Officer Buzz", role: "law · cynic · secret softie", text: "deadpan and perpetually stressed, he's slowly realizing not all plants are the enemy. world's okayest cop." },
+  { doodle: "sparkle", tint: "purple",  name: "Twig", role: "forest dweller · mysterious", text: "cryptic, barefoot, and ...mostly human. they speak in riddles and commune with mushrooms that don't have names yet." },
+  { doodle: "moon",    tint: "magenta", name: "Marlow", role: "dealer · philosopher · friend?", text: "smooth-talking buyer who lives in the gray areas. he's shadier than he looks, more loyal than he lets on." },
+  { doodle: "crown",   tint: "teal",    name: "The D.A.R.E. Kids", role: "junior detectives · comic foil", text: "four earnest kids who think they're mini cops, patrolling Sagebrook for 'criminals' and finding suspects absolutely everywhere. they're adorable, dramatic, mostly ineffective." },
 ];
 
 const SOCIAL = [
@@ -72,7 +72,7 @@ function Nav() {
     <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(10,15,12,0.82)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
       <nav style={{ maxWidth: 1100, margin: "0 auto", padding: "14px 28px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <span style={{ fontFamily: serif, fontSize: 25, fontWeight: 600, color: CREAM, display: "flex", alignItems: "center", gap: 9, textShadow: `0 0 18px ${TEAL}40` }}>
-          <Doodle name="leaf" size={22} tint="teal" glow /> Cultivation
+          <Doodle name="leaf" size={22} tint="teal" glow /> cultivation
         </span>
         <div style={{ display: "flex", gap: 26, alignItems: "center" }}>
           {links.map(([l, href], i) => (
@@ -104,10 +104,10 @@ function Hero() {
       <div style={{ position: "absolute", left: "15%", bottom: "16%", opacity: 0.7, transform: "rotate(8deg)" }}><Doodle name="sparkle" size={20} tint="teal" glow /></div>
       <div style={{ position: "relative" }}>
         <p style={{ fontFamily: mono, fontSize: 12, letterSpacing: "0.2em", textTransform: "uppercase", color: TEAL, margin: "0 0 18px", textShadow: `0 0 12px ${TEAL}66` }}>a cozy farming &amp; life sim</p>
-        <h1 style={{ fontFamily: serif, fontSize: "clamp(48px, 8vw, 90px)", fontWeight: 600, color: CREAM, margin: 0, lineHeight: 0.98, textShadow: `0 0 34px ${TEAL}40, 0 0 60px ${PURPLE}30` }}>Cultivation</h1>
+        <h1 style={{ fontFamily: serif, fontSize: "clamp(48px, 8vw, 90px)", fontWeight: 600, color: CREAM, margin: 0, lineHeight: 0.98, textShadow: `0 0 34px ${TEAL}40, 0 0 60px ${PURPLE}30` }}>cultivation</h1>
         <p style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, color: GOLD, marginTop: 14, textShadow: `0 0 16px ${GOLD}44` }}>grow your story, one seed at a time</p>
         <p style={{ fontFamily: sans, fontSize: 17, color: BODY, maxWidth: 588, margin: "20px auto 14px", lineHeight: 1.65 }}>
-          You never thought you'd be the caretaker of a scrappy little farm on the edge of <strong style={{ color: CREAM }}>Sagebrook</strong>, a small town in the Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice.
+          you never thought you'd be the caretaker of a scrappy little farm on the edge of <strong style={{ color: CREAM }}>Sagebrook</strong>, a small town in Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice.
         </p>
         <div style={{ marginBottom: 32 }}><HandNote style={{ transform: "rotate(-3deg)", display: "inline-block" }}>grow a life. make some friends. try not to attract attention.</HandNote></div>
         <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
@@ -165,7 +165,7 @@ function Characters() {
   return (
     <section id="neighbors" style={{ padding: "78px 24px", background: `radial-gradient(55% 55% at 85% 10%, ${PURPLE}1c, transparent 62%), ${NIGHT}` }}>
       <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-        <SectionHead kicker="the cast" kickerColor={PURPLE} title="meet the neighbors" sub="Warm, funny, flawed, and a little strange. Everyone in Sagebrook has a secret, and most of them involve your farm." />
+        <SectionHead kicker="the cast" kickerColor={PURPLE} title="meet the neighbors" sub="warm, funny, flawed, and a little strange. everyone in Sagebrook has a secret, and most of them involve your farm." />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
           {CHARACTERS.map(c => (
             <Lift key={c.name} radius={18} pad={24} glow={GLOW[c.tint]}>
@@ -189,9 +189,9 @@ function Characters() {
 
 function Journal() {
   const posts = [
-    "Designing a town where everyone has a secret",
+    "designing a town where everyone has a secret",
     "Marlow, and writing a bad influence you actually trust",
-    "The Whisperwood Hollow: cozy, but make it uncanny",
+    "Whisperwood Hollow: cozy, but make it uncanny",
   ];
   return (
     <section style={{ padding: "78px 24px", background: `radial-gradient(45% 55% at 50% 0%, ${GOLD}12, transparent 60%), ${NIGHT2}` }}>
@@ -221,7 +221,7 @@ function AfterDark() {
           <p style={{ fontFamily: mono, fontSize: 12, letterSpacing: "0.16em", textTransform: "uppercase", color: GOLD, margin: "0 0 11px", textShadow: `0 0 12px ${GOLD}66` }}>after the market closes</p>
           <h2 style={{ fontFamily: serif, fontSize: 40, fontWeight: 600, color: CREAM, margin: 0, textShadow: `0 0 28px ${PURPLE}44` }}>Sagebrook after dark</h2>
           <p style={{ fontFamily: sans, fontSize: 16, color: BODY, maxWidth: 600, margin: "14px auto 0", lineHeight: 1.65 }}>
-            When the string lights come on, the café keeps brewing, the back alley opens for business, and the woods begin to glow. Cozy, never grim, just a little uncanny.
+            when the string lights come on, the café keeps brewing, the back alley opens for business, and the woods begin to glow. cozy, never grim, just a little uncanny.
           </p>
         </div>
         <p style={{ textAlign: "center", marginBottom: 46 }}><HandNote color={TEAL} size={24}>the forest feels different at night.</HandNote></p>
@@ -229,10 +229,10 @@ function AfterDark() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))", gap: 44, alignItems: "center" }}>
           <div>
             <p style={{ fontFamily: mono, fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: TEAL, margin: "0 0 18px", textShadow: `0 0 12px ${TEAL}55` }}>two ways to play</p>
-            <h3 style={{ fontFamily: serif, fontSize: 23, color: CREAM, margin: "0 0 6px" }}>Play it cozy.</h3>
-            <p style={{ fontFamily: sans, fontSize: 15, color: BODY, lineHeight: 1.6, margin: "0 0 24px" }}>Grow, craft, and sell at your own pace. No cops, no consequences, no stress. Just you, the dirt, and good company.</p>
-            <h3 style={{ fontFamily: serif, fontSize: 23, color: CREAM, margin: "0 0 6px" }}>Or take the risk.</h3>
-            <p style={{ fontFamily: sans, fontSize: 15, color: BODY, lineHeight: 1.6, margin: 0 }}>Switch on a mode where not everything you grow is strictly legal, and a suspicion system means nosy neighbors (and the law) start to notice.</p>
+            <h3 style={{ fontFamily: serif, fontSize: 23, color: CREAM, margin: "0 0 6px" }}>play it cozy.</h3>
+            <p style={{ fontFamily: sans, fontSize: 15, color: BODY, lineHeight: 1.6, margin: "0 0 24px" }}>grow, craft, and sell at your own pace. no cops, no consequences, no stress. just you, the dirt, and good company.</p>
+            <h3 style={{ fontFamily: serif, fontSize: 23, color: CREAM, margin: "0 0 6px" }}>or take the risk.</h3>
+            <p style={{ fontFamily: sans, fontSize: 15, color: BODY, lineHeight: 1.6, margin: 0 }}>switch on a mode where not everything you grow is strictly legal, and a suspicion system means nosy neighbors (and the law) start to notice.</p>
           </div>
           <div style={{ textAlign: "center" }}>
             <img src="assets/cultivation/ui/suspicion-meter.png" alt="In-game suspicion meter: a vine-bordered parchment panel reading Suspicion 10%, folks are mostly at ease." style={{ width: "100%", maxWidth: 360, height: "auto", filter: `drop-shadow(0 0 28px ${PURPLE}55) drop-shadow(0 16px 26px rgba(0,0,0,0.6))`, transform: "rotate(-2deg)" }} />
@@ -266,17 +266,17 @@ function Footer() {
   return (
     <footer style={{ background: INK, color: BODY, padding: "54px 24px 40px", textAlign: "center", borderTop: `1px solid ${LINE}` }}>
       <div style={{ fontFamily: serif, fontSize: 23, marginBottom: 10, color: CREAM, display: "flex", alignItems: "center", justifyContent: "center", gap: 9, textShadow: `0 0 16px ${TEAL}40` }}>
-        <Doodle name="leaf" size={20} tint="teal" glow /> Cultivation
+        <Doodle name="leaf" size={20} tint="teal" glow /> cultivation
       </div>
       <p style={{ fontFamily: sans, fontSize: 14, color: BODY, maxWidth: 480, margin: "0 auto 24px", lineHeight: 1.6 }}>
-        Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Sagebrook and the Whisperwood Hollow.
+        currently growing in Unreal Engine 5. a cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow.
       </p>
       <div style={{ display: "flex", justifyContent: "center", gap: 14, marginBottom: 24 }}>
         {SOCIAL.map(([f, label]) => (
           <SocialDot key={f} f={f} label={label} />
         ))}
       </div>
-      <p style={{ fontFamily: mono, fontSize: 12, color: MUTE }}>© 2026 Cultivation · Cult Studios. grow responsibly.</p>
+      <p style={{ fontFamily: mono, fontSize: 12, color: MUTE }}>© 2026 cultivation · Cult Studios. grow responsibly.</p>
     </footer>
   );
 }

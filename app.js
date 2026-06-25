@@ -1,4 +1,4 @@
-// Cultivation marketing site 
+// cultivation marketing site 
 // Source: site.jsx, transpiled with @babel/preset-react. 
 // Cozy farming + soft-occult life sim set in Sagebrook, the Whisperwood Hollow.
 const {
@@ -162,7 +162,7 @@ function Nav() {
     size: 22,
     tint: "teal",
     glow: true
-  }), " Cultivation"), /*#__PURE__*/React.createElement("div", {
+  }), " cultivation"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 26,
@@ -790,7 +790,7 @@ function Footer() {
     size: 20,
     tint: "teal",
     glow: true
-  }), " Cultivation"), /*#__PURE__*/React.createElement("p", {
+  }), " cultivation"), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: sans,
       fontSize: 14,
@@ -816,7 +816,7 @@ function Footer() {
       fontSize: 12,
       color: MUTE
     }
-  }, "\xA9 2026 Cultivation \xB7 Cult Studios. grow responsibly."));
+  }, "\xA9 2026 cultivation \xB7 Cult Studios. grow responsibly."));
 }
 function Site() {
   return /*#__PURE__*/React.createElement("div", {

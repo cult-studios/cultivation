@@ -1,6 +1,6 @@
-// Cultivation marketing site
-// Source: site.jsx, transpiled with @babel/preset-react. 
-
+// Cultivation marketing site — PRE-COMPILED (no Babel needed at runtime)
+// Source: site.jsx, transpiled with @babel/preset-react. Edit site.jsx and recompile if you change anything.
+// Cozy farming + soft-occult life sim set in Sagebrook, the Whisperwood Hollow.
 const {
   useState
 } = React;
@@ -9,7 +9,7 @@ const sans = "var(--font-sans-cv)"; // Inter
 const mono = "var(--font-mono)";
 const hand = "var(--font-hand)"; // Caveat
 
-// night palette 
+// ── night palette (sampled from the reference art) ──
 const INK = "#0a0f0c"; // deepest
 const NIGHT = "#0e1611"; // page base
 const NIGHT2 = "#0b120e"; // alt section
@@ -71,12 +71,12 @@ const FEATURES = [{
   doodle: "leaf",
   tint: "teal",
   title: "Farm life",
-  text: "Tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep out of sight). Every harvest is a small, smug victory."
+  text: "Tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep in the greenhouse). Every harvest is a small, smug victory."
 }, {
   doodle: "hearts",
   tint: "magenta",
   title: "Community",
-  text: "The town is full of warm, funny, deeply nosy people. Win them over for recipes, gossip, friendship, and the occasional alibi."
+  text: "Sagebrook is full of warm, funny, deeply nosy people. Win them over for recipes, gossip, friendship, and the occasional alibi."
 }, {
   doodle: "gem",
   tint: "gold",
@@ -85,45 +85,45 @@ const FEATURES = [{
 }, {
   doodle: "moon",
   tint: "purple",
-  title: "The Vale",
-  text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's always listening."
+  title: "The Hollow",
+  text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention."
 }];
 const CHARACTERS = [{
   doodle: "flower",
   tint: "gold",
   name: "Granma Gem",
   role: "mentor · herbalist · baker",
-  text: "Sweet, spacey ex-hippie with a secret wild past and suspiciously specific memories from the 70s. She will absolutely feed you baked goods - normal or special."
+  text: "Sweet, spacey ex-hippie with a secret wild past and suspiciously specific memories from the 70s. Will absolutely feed you."
 }, {
   doodle: "leaf",
   tint: "teal",
   name: "Maple",
-  role: "tea curator · alchemist · mysterious",
-  text: "Runs The Drowsy Leaf. They brew tea, comfort, and the occasional mind-expanding concoction for dreamers and night owls."
+  role: "tea alchemist · they/them",
+  text: "Runs The Drowsy Leaf. Brews tea, comfort, and the occasional mind-expanding concoction for dreamers and night owls."
 }, {
   doodle: "star",
   tint: "blue",
   name: "Officer Buzz",
   role: "law · cynic · secret softie",
-  text: "Deadpan, perpetually stressed, and he's slowly realizing not all plants are the enemy. World's Okayest Cop."
+  text: "Deadpan, perpetually stressed, and slowly realizing not all plants are the enemy. World's Okayest Cop."
 }, {
   doodle: "sparkle",
   tint: "purple",
   name: "Twig",
   role: "forest dweller · fungal lorekeeper",
-  text: "Cryptic, barefoot, and ...mostly human. Speaks in riddles and is widely believed to commune with mushrooms."
+  text: "Cryptic, barefoot, and ...mostly human. Speaks in riddles and communes with mushrooms that don't have names yet."
 }, {
   doodle: "moon",
   tint: "magenta",
   name: "Marlow",
-  role: "dealer · philosopher · friend?",
+  role: "dealer · philosopher · friend",
   text: "Smooth-talking buyer who lives in the gray areas. Shadier than he looks, more loyal than he lets on."
 }, {
   doodle: "crown",
   tint: "teal",
   name: "The D.A.R.E. Kids",
   role: "junior detectives · comic foil",
-  text: "Four earnest vigilantes, patrolling the town for 'criminals' and finding suspects absolutely everywhere. Adorable, dramatic, but mostly ineffective."
+  text: "Four earnest kids who think they're mini cops, patrolling Sagebrook for 'criminals' and finding suspects absolutely everywhere. Adorable, dramatic, mostly ineffective."
 }];
 const SOCIAL = [["bsky", "Bluesky"], ["discord", "Discord"], ["instagram", "Instagram"], ["youtube", "YouTube"]];
 function Nav() {
@@ -308,7 +308,7 @@ function Hero() {
     style: {
       color: CREAM
     }
-  }, "Sagebrook"), ", a small town in Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice."), /*#__PURE__*/React.createElement("div", {
+  }, "Sagebrook"), ", a small town in the Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice."), /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 32
     }
@@ -532,7 +532,7 @@ function Characters() {
   }, c.text))))));
 }
 function Journal() {
-  const posts = ["Designing a town where everyone has a secret", "Marlow, and writing a bad influence you actually trust", "Whisperwood Hollow: cozy, but make it uncanny"];
+  const posts = ["Designing a town where everyone has a secret", "Marlow, and writing a bad influence you actually trust", "The Whisperwood Hollow: cozy, but make it uncanny"];
   return /*#__PURE__*/React.createElement("section", {
     style: {
       padding: "78px 24px",
@@ -799,7 +799,7 @@ function Footer() {
       margin: "0 auto 24px",
       lineHeight: 1.6
     }
-  }, "Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow."), /*#__PURE__*/React.createElement("div", {
+  }, "Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Sagebrook and the Whisperwood Hollow."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       justifyContent: "center",

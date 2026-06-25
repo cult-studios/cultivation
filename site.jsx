@@ -1,5 +1,5 @@
 // Cultivation marketing site UI kit
-// Cozy farming + soft-occult life sim set in Sagebrook, Whisperwood Hollow.
+// Cozy farming + soft-occult life sim set in Sagebrook, the Whisperwood Hollow.
 // Dark, glowing "enchanted forest at night" treatment: deep forest base, bioluminescent
 // teal + mushroom-purple glow, warm lantern gold, green energy. No emoji, hand-drawn doodles only.
 const { useState } = React;
@@ -50,7 +50,7 @@ const FEATURES = [
   { doodle: "leaf",   tint: "teal",    title: "Farm life", text: "Tend real crops through the seasons (carrots, chamomile, tomatoes, and the kind of plants you keep in the greenhouse). Every harvest is a small, smug victory." },
   { doodle: "hearts", tint: "magenta", title: "Community", text: "Sagebrook is full of warm, funny, deeply nosy people. Win them over for recipes, gossip, friendship, and the occasional alibi." },
   { doodle: "gem",    tint: "gold",    title: "Trade & craft", text: "Dry, brew, infuse, and roll your harvest into something worth selling, through the shop, the café, or a guy named Marlow." },
-  { doodle: "moon",   tint: "purple",  title: "The Vale", text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention." },
+  { doodle: "moon",   tint: "purple",  title: "The Hollow", text: "Glowing fungi. Instructive dreams. Forest paths that don't go where they should. Whisperwood Hollow is older than the town, and it's paying attention." },
 ];
 
 const CHARACTERS = [
@@ -107,7 +107,7 @@ function Hero() {
         <h1 style={{ fontFamily: serif, fontSize: "clamp(48px, 8vw, 90px)", fontWeight: 600, color: CREAM, margin: 0, lineHeight: 0.98, textShadow: `0 0 34px ${TEAL}40, 0 0 60px ${PURPLE}30` }}>Cultivation</h1>
         <p style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, color: GOLD, marginTop: 14, textShadow: `0 0 16px ${GOLD}44` }}>grow your story, one seed at a time</p>
         <p style={{ fontFamily: sans, fontSize: 17, color: BODY, maxWidth: 588, margin: "20px auto 14px", lineHeight: 1.65 }}>
-          You never thought you'd be the caretaker of a scrappy little farm on the edge of <strong style={{ color: CREAM }}>Sagebrook</strong>, a small town in Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice.
+          You never thought you'd be the caretaker of a scrappy little farm on the edge of <strong style={{ color: CREAM }}>Sagebrook</strong>, a small town in the Whisperwood Hollow where everyone knows everyone, the crops are only sometimes legal, and the mushrooms occasionally give good advice.
         </p>
         <div style={{ marginBottom: 32 }}><HandNote style={{ transform: "rotate(-3deg)", display: "inline-block" }}>grow a life. make some friends. try not to attract attention.</HandNote></div>
         <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
@@ -191,7 +191,7 @@ function Journal() {
   const posts = [
     "Designing a town where everyone has a secret",
     "Marlow, and writing a bad influence you actually trust",
-    "Whisperwood Hollow: cozy, but make it uncanny",
+    "The Whisperwood Hollow: cozy, but make it uncanny",
   ];
   return (
     <section style={{ padding: "78px 24px", background: `radial-gradient(45% 55% at 50% 0%, ${GOLD}12, transparent 60%), ${NIGHT2}` }}>
@@ -269,7 +269,7 @@ function Footer() {
         <Doodle name="leaf" size={20} tint="teal" glow /> Cultivation
       </div>
       <p style={{ fontFamily: sans, fontSize: 14, color: BODY, maxWidth: 480, margin: "0 auto 24px", lineHeight: 1.6 }}>
-        Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow.
+        Currently growing in Unreal Engine 5. A cozy game about plants, community, and questionable business decisions, set in Sagebrook and the Whisperwood Hollow.
       </p>
       <div style={{ display: "flex", justifyContent: "center", gap: 14, marginBottom: 24 }}>
         {SOCIAL.map(([f, label]) => (

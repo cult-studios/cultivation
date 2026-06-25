@@ -67,7 +67,7 @@ const SOCIAL = [
 ];
 
 function Nav() {
-  const links = ["Home", "Game", "Characters", "Journal", "Shop"];
+  const links = [["Home", "#"], ["Game", "#"], ["Characters", "#neighbors"], ["Journal", "journal.html"], ["Shop", "#"]];
   return (
     <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(10,15,12,0.82)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${LINE}` }}>
       <nav style={{ maxWidth: 1100, margin: "0 auto", padding: "14px 28px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -75,8 +75,8 @@ function Nav() {
           <Doodle name="leaf" size={22} tint="teal" glow /> Cultivation
         </span>
         <div style={{ display: "flex", gap: 26, alignItems: "center" }}>
-          {links.map((l, i) => (
-            <a key={l} href="#" style={{ textDecoration: "none", color: i === 4 ? CREAM : BODY, fontFamily: sans, fontWeight: 500, fontSize: 15,
+          {links.map(([l, href], i) => (
+            <a key={l} href={href} style={{ textDecoration: "none", color: i === 4 ? CREAM : BODY, fontFamily: sans, fontWeight: 500, fontSize: 15,
               padding: i === 4 ? "8px 18px" : 0,
               background: i === 4 ? `${OCCULT}33` : "none",
               border: i === 4 ? `1px solid ${PURPLE}88` : "none",

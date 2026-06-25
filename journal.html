@@ -1,0 +1,320 @@
+<!-- @dsCard group="Cultivation" viewport="1100x860" name="Cultivation — Dev Journal (Contents)" subtitle="Journal page: parchment table of contents; clicking an entry opens it in a panel over the dimmed index. Pure CSS/JS." -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cultivation — Dev Journal</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  :root {
+    --parch-1: #efe3c4; --parch-2: #e4d3ab; --parch-3: #d6c08c;
+    --parch-ink: #4a3a26; --parch-ink-soft: #6b573c;
+    --vine: #4a5b34; --vine-dark: #33401f; --bronze: #9c7b46;
+    --ribbon: #8456b0; --ribbon-teal: #3f8f86;
+  }
+  html, body { margin: 0; }
+  body[data-theme="vale-night"] {
+    background:
+      radial-gradient(60% 50% at 18% 0%, rgba(111,198,196,0.10), transparent 60%),
+      radial-gradient(55% 55% at 88% 20%, rgba(132,86,176,0.12), transparent 62%),
+      var(--vale-night);
+    min-height: 100vh; font-family: var(--font-sans-cv);
+    padding: 40px 22px 64px; box-sizing: border-box;
+  }
+
+  /* back link */
+  .back {
+    display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--vale-lumen); margin-bottom: 22px; opacity: 0.85;
+  }
+  .back:hover { opacity: 1; }
+  .back .arr { font-size: 15px; }
+
+  .desk-head { max-width: 760px; margin: 0 auto 30px; text-align: center; }
+  .desk-head .kick {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--vale-lumen); margin: 0 0 9px;
+    text-shadow: 0 0 12px rgba(111,198,196,0.5);
+  }
+  .desk-head h1 {
+    font-family: var(--font-display); font-weight: 600; font-size: 44px; margin: 0;
+    color: var(--vale-cream); text-shadow: 0 0 26px rgba(111,198,196,0.28);
+  }
+  .desk-head p {
+    font-family: var(--font-hand); font-size: 22px; color: var(--vale-lantern);
+    margin: 6px 0 0; text-shadow: 0 0 14px rgba(232,168,77,0.4);
+  }
+
+  /* shared parchment surface */
+  .parch {
+    color: var(--parch-ink);
+    background:
+      linear-gradient(160deg, rgba(239,227,196,0.55), rgba(220,198,148,0.5) 60%, rgba(206,184,134,0.6)),
+      url("assets/cultivation/ui/parchment-seamless.jpg") top left / 300px repeat;
+    background-blend-mode: multiply, normal;
+    border: 3px solid var(--vine); border-radius: 16px;
+    box-shadow:
+      inset 0 0 0 2px rgba(156,123,70,0.4), inset 0 0 46px rgba(120,92,52,0.3),
+      0 18px 34px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  .parch::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.04; border-radius: 16px;
+    background-image: repeating-linear-gradient(0deg, rgba(74,58,38,0.8) 0 1px, transparent 1px 4px);
+  }
+
+  /* ---------- table of contents ---------- */
+  .toc {
+    max-width: 720px; margin: 0 auto; padding: 36px 40px 40px;
+  }
+  .toc-title {
+    font-family: var(--font-display); font-weight: 600; font-size: 30px; color: var(--parch-ink);
+    margin: 0 0 4px; display: flex; align-items: center; gap: 12px;
+  }
+  .toc-title img { width: 26px; height: 26px; filter: invert(22%) sepia(18%) saturate(700%) hue-rotate(45deg); }
+  .toc-sub { font-family: var(--font-hand); font-size: 20px; color: var(--vine-dark); margin: 0 0 22px; }
+  .toc-rule {
+    height: 0; border: none; border-top: 2px solid rgba(74,58,38,0.35); margin: 0 0 8px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .toc-row {
+    width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+    display: grid; grid-template-columns: 46px 1fr auto; align-items: center; gap: 14px;
+    padding: 15px 10px; border-radius: 5px; color: inherit; font: inherit;
+    border-bottom: 1px dashed rgba(74,58,38,0.25); transition: background .18s ease, transform .18s ease;
+  }
+  .toc-row:last-child { border-bottom: none; }
+  .toc-row:hover { background: rgba(120,92,52,0.13); transform: translateX(3px); }
+  .toc-row:focus-visible { outline: 2px solid var(--vine); outline-offset: 2px; }
+  .toc-seal {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%, #5d7040, var(--vine-dark));
+    border: 2px solid var(--bronze); box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 2px 5px rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .toc-seal img { width: 20px; height: 20px; filter: invert(94%) sepia(20%) saturate(180%) brightness(1.1); }
+  .toc-main h3 { font-family: var(--font-display); font-weight: 600; font-size: 19px; margin: 0; color: var(--parch-ink); }
+  .toc-main .tsub { font-family: var(--font-hand); font-size: 16px; color: var(--vine-dark); margin-top: 1px; }
+  .toc-meta { text-align: right; }
+  .toc-meta .no { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--parch-ink-soft); }
+  .toc-meta .dt { font-family: var(--font-mono); font-size: 10px; color: var(--parch-ink-soft); opacity: 0.8; margin-top: 2px; }
+  .toc-row.locked { cursor: default; opacity: 0.5; }
+  .toc-row.locked:hover { background: none; transform: none; }
+
+  /* ---------- modal ---------- */
+  .backdrop {
+    position: fixed; inset: 0; z-index: 100; display: flex;
+    align-items: flex-start; justify-content: center; padding: 48px 20px;
+    background: rgba(6,9,7,0.74); backdrop-filter: blur(3px); overflow-y: auto;
+    visibility: hidden; opacity: 0; pointer-events: none;
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+  .backdrop.open { visibility: visible; opacity: 1; pointer-events: auto; }
+  .modal {
+    max-width: 680px; width: 100%; padding: 36px 40px 40px; margin: auto;
+    transform: translateY(16px) scale(0.965); opacity: 0;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+  .backdrop.open .modal { transform: none; opacity: 1; }
+  .modal .close {
+    position: absolute; top: 14px; right: 16px; width: 30px; height: 30px; border-radius: 50%;
+    border: 1.5px solid rgba(74,58,38,0.5); background: rgba(120,92,52,0.15); color: var(--parch-ink);
+    font-size: 17px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .modal .close:hover { background: rgba(120,92,52,0.3); }
+  .ribbon {
+    position: absolute; top: -8px; right: 40px; width: 24px; height: 58px;
+    background: linear-gradient(180deg, var(--ribbon), #6f479a);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4), 0 0 14px rgba(132,86,176,0.5);
+  }
+  .m-head { display: flex; align-items: center; gap: 13px; margin-bottom: 6px; }
+  .m-seal {
+    width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+    background: radial-gradient(circle at 38% 32%, #5d7040, var(--vine-dark));
+    border: 2px solid var(--bronze); box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 2px 5px rgba(0,0,0,0.35);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .m-seal img { width: 22px; height: 22px; filter: invert(94%) sepia(20%) saturate(180%) brightness(1.1); }
+  .m-no { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--parch-ink-soft); }
+  .m-dt { font-family: var(--font-mono); font-size: 10.5px; color: var(--parch-ink-soft); opacity: 0.8; }
+  .modal h2 { font-family: var(--font-display); font-weight: 600; font-size: 27px; color: var(--parch-ink); margin: 10px 0 4px; }
+  .modal .sub { font-family: var(--font-hand); font-size: 20px; color: var(--vine-dark); margin: 0 0 16px; }
+  .modal .rule {
+    height: 0; border: none; border-top: 2px solid rgba(74,58,38,0.35); margin: 14px 0 18px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .modal p.body { font-family: var(--font-sans-cv); font-size: 15.5px; line-height: 1.72; color: var(--parch-ink); margin: 0 0 14px; }
+  .modal p.body strong { color: #3a2c1a; }
+  .modal p.body em { font-style: italic; }
+  .modal a { color: #6a4a86; text-decoration: underline; text-underline-offset: 2px; }
+  .modal a:hover { color: #573b6f; }
+  .modal h3.bh {
+    font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--vine-dark);
+    margin: 22px 0 8px;
+  }
+  .modal blockquote.bq {
+    margin: 18px 0; padding: 6px 0 6px 18px; border-left: 3px solid var(--vine);
+    font-family: var(--font-display); font-style: italic; font-size: 19px; line-height: 1.5; color: var(--vine-dark);
+  }
+  .modal ul.bl { margin: 0 0 14px; padding-left: 4px; list-style: none; }
+  .modal ul.bl li {
+    font-family: var(--font-sans-cv); font-size: 15.5px; line-height: 1.6; color: var(--parch-ink);
+    padding-left: 22px; position: relative; margin-bottom: 7px;
+  }
+  .modal ul.bl li::before {
+    content: ""; position: absolute; left: 4px; top: 9px; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--vine);
+  }
+  .modal figure.bf { margin: 18px 0; }
+  .modal figure.bf img {
+    width: 100%; border-radius: 8px; border: 2px solid rgba(74,58,38,0.3);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  }
+  .modal figure.bf figcaption {
+    font-family: var(--font-hand); font-size: 16px; color: var(--vine-dark);
+    text-align: center; margin-top: 7px;
+  }
+  .modal .drop::first-letter {
+    font-family: var(--font-display); font-weight: 600; font-size: 52px; float: left;
+    line-height: 0.8; padding: 4px 10px 2px 0; color: var(--vine-dark);
+  }
+  .stamps { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 20px; }
+  .stamp {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--parch-ink-soft); padding: 4px 11px; border-radius: 3px;
+    border: 1.5px solid rgba(74,58,38,0.4); background: rgba(120,92,52,0.1); transform: rotate(-1.5deg);
+  }
+  .stamp:nth-child(even) { transform: rotate(1.2deg); }
+</style>
+</head>
+<body data-theme="vale-night">
+  <a class="back" href="index.html"><span class="arr">&larr;</span> back to Cultivation</a>
+
+  <div class="desk-head">
+    <p class="kick">cultivation · field notes</p>
+    <h1>The Dev Journal</h1>
+    <p>notes from the edge of Hollowbend</p>
+  </div>
+
+  <div class="toc parch">
+    <h2 class="toc-title"><img src="assets/doodles/leaf.svg" alt=""> Contents</h2>
+    <p class="toc-sub">everything we've dug up so far</p>
+    <hr class="toc-rule">
+    <div id="toc-list"></div>
+  </div>
+
+  <div class="backdrop" id="backdrop">
+    <article class="modal parch" id="modal" role="dialog" aria-modal="true">
+      <button class="close" id="close" aria-label="Close">&times;</button>
+      <span class="ribbon"></span>
+      <div id="modal-body"></div>
+    </article>
+  </div>
+
+  <script src="entries.js"></script>
+  <script>
+    const ENTRIES = window.JOURNAL_ENTRIES || [];
+
+    // ---- tiny inline formatter: **bold**  *italic*  [text](url) ----
+    function inline(s) {
+      s = String(s)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      s = s.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener">$1</a>');
+      s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+      return s;
+    }
+
+    // ---- render one body block to HTML ----
+    function block(b, isFirst) {
+      switch (b.type) {
+        case "h":     return `<h3 class="bh">${inline(b.text)}</h3>`;
+        case "quote": return `<blockquote class="bq">${inline(b.text)}</blockquote>`;
+        case "list":  return `<ul class="bl">${(b.items||[]).map(it => `<li>${inline(it)}</li>`).join("")}</ul>`;
+        case "img":   return `<figure class="bf"><img src="${b.src}" alt="${(b.caption||"").replace(/"/g,"&quot;")}">${b.caption ? `<figcaption>${inline(b.caption)}</figcaption>` : ""}</figure>`;
+        case "p":
+        default:      return `<p class="body${isFirst ? " drop" : ""}">${inline(b.text)}</p>`;
+      }
+    }
+
+    const tocList = document.getElementById('toc-list');
+    const backdrop = document.getElementById('backdrop');
+    const modalBody = document.getElementById('modal-body');
+
+    // ---- alternating wax-seal tints (vale-night accents) ----
+    const SEAL_TINTS = [
+      { a: "#6fc6c4", b: "#2c6e66" }, // lumen teal
+      { a: "#b478e0", b: "#6f479a" }, // mushroom
+      { a: "#e8a84d", b: "#a06a1f" }, // lantern gold
+      { a: "#e85fb0", b: "#a83a78" }  // magenta
+    ];
+    function sealStyle(i) {
+      const t = SEAL_TINTS[i % SEAL_TINTS.length];
+      return `background: radial-gradient(circle at 38% 32%, ${t.a}, ${t.b}); box-shadow: inset 0 2px 4px rgba(255,255,255,0.28), 0 2px 6px rgba(0,0,0,0.35), 0 0 13px ${t.a}66;`;
+    }
+
+    ENTRIES.forEach((e, i) => {
+      const row = document.createElement('button');
+      row.className = 'toc-row';
+      row.innerHTML = `
+        <span class="toc-seal" style="${sealStyle(i)}"><img src="assets/doodles/${e.seal}.svg" alt=""></span>
+        <span class="toc-main">
+          <h3>${e.title}</h3>
+          <div class="tsub">${e.sub}</div>
+        </span>
+        <span class="toc-meta">
+          <div class="no">Entry No. ${e.no}</div>
+          <div class="dt">${e.date}</div>
+        </span>`;
+      row.addEventListener('click', () => openEntry(i));
+      tocList.appendChild(row);
+    });
+
+    // a locked "coming soon" row (configured in entries.js)
+    const up = window.JOURNAL_UPCOMING;
+    if (up) {
+      const locked = document.createElement('div');
+      locked.className = 'toc-row locked';
+      locked.innerHTML = `
+        <span class="toc-seal"><img src="assets/doodles/${up.seal || 'star'}.svg" alt=""></span>
+        <span class="toc-main"><h3>Entry No. ${up.no}</h3><div class="tsub">${up.note || 'not written yet…'}</div></span>
+        <span class="toc-meta"><div class="no">soon</div></span>`;
+      tocList.appendChild(locked);
+    }
+
+    function openEntry(i) {
+      const e = ENTRIES[i];
+      modalBody.innerHTML = `
+        <div class="m-head">
+          <div class="m-seal" style="${sealStyle(i)}"><img src="assets/doodles/${e.seal}.svg" alt=""></div>
+          <div>
+            <div class="m-no">Entry No. ${e.no}</div>
+            <div class="m-dt">${e.date}</div>
+          </div>
+        </div>
+        <h2>${e.title}</h2>
+        <p class="sub">${e.sub}</p>
+        <hr class="rule">
+        ${e.body.map((b, idx) => block(b, idx === 0)).join('')}
+        <div class="stamps">${e.tags.map(t => `<span class="stamp">${t}</span>`).join('')}</div>`;
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('close').focus();
+    }
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('close').addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (ev) => { if (ev.target === backdrop) closeModal(); });
+    document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeModal(); });
+  </script>
+</body>
+</html>

@@ -316,6 +316,14 @@
     document.getElementById('close').addEventListener('click', closeModal);
     backdrop.addEventListener('click', (ev) => { if (ev.target === backdrop) closeModal(); });
     document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeModal(); });
+
+    // deep link: journal.html?entry=001 opens that entry (used by newsletter emails)
+    (function(){
+      const want = new URLSearchParams(location.search).get('entry');
+      if (!want) return;
+      const idx = ENTRIES.findIndex(e => String(e.no) === String(want));
+      if (idx >= 0) openEntry(idx);
+    })();
   </script>
 </body>
 </html>

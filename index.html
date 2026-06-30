@@ -159,6 +159,7 @@
   .fake-form input::placeholder{color:var(--pg-muted)}
   .fake-form button{border:0;cursor:pointer;white-space:nowrap}
   .news-note{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--pg-muted);margin:0}
+  .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   #news-msg{font-family:var(--hand);font-size:18px;color:var(--gold);min-height:22px;margin:10px 0 0}
   .devlog-link{display:inline-block;margin-top:18px;color:var(--pg-brand);font-weight:600;text-decoration:none}
   .devlog-link:hover{text-decoration:underline}
@@ -396,6 +397,9 @@
         <p>we're posting dev notes about the farming loop, the cast, art direction, and the slow, stubborn march toward something playable. it reads like a journal, because it is one.</p>
         <form class="fake-form" id="news-form" novalidate>
           <input type="email" id="news-email" placeholder="you@example.com" aria-label="email address" required />
+          <div class="hp-field" aria-hidden="true">
+            <label>do not fill this in <input type="text" id="news-hp" tabindex="-1" autocomplete="off" /></label>
+          </div>
           <button class="button primary" type="submit">keep me posted</button>
         </form>
         <p class="news-note">no spam, no suspicion. just the occasional dispatch from the farm.</p>
@@ -438,6 +442,9 @@
   </div>
 </footer>
 
+<!-- Supabase client (used by the newsletter form once SUPABASE_READY is flipped on) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
   (function(){
     var root = document.documentElement;
@@ -458,21 +465,50 @@
     sync();
   })();
 
-  // newsletter — not wired yet (Supabase coming before launch)
+  // ===== newsletter signup =====
+  // SETUP: 1) create a Supabase project  2) run the SQL from the setup notes to
+  // make the `signups` table  3) paste your Project URL + anon key below  4) flip
+  // SUPABASE_READY to true. until then the form runs in "saved in spirit" demo mode.
   (function(){
+    var SUPABASE_READY = false;
+    var SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+    var SUPABASE_ANON_KEY = "YOUR-ANON-PUBLIC-KEY";
+
     var form = document.getElementById('news-form');
     if(!form) return;
     var email = document.getElementById('news-email');
+    var hp = document.getElementById('news-hp');
     var msg = document.getElementById('news-msg');
-    form.addEventListener('submit', function(e){
+    var db = null;
+
+    function valid(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    form.addEventListener('submit', async function(e){
       e.preventDefault();
+      // honeypot: real people leave this empty; bots fill it. silently "succeed".
+      if(hp && hp.value){ email.value=''; msg.textContent='thanks! you\u2019re on the list \u2665'; return; }
+
       var v = (email.value||'').trim();
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
-        msg.textContent = 'hmm, that email looks off. try again?';
-        return;
+      if(!valid(v)){ msg.textContent = 'hmm, that email looks off. try again?'; return; }
+
+      // demo mode until Supabase is configured
+      if(!SUPABASE_READY || typeof supabase === 'undefined'){
+        email.value=''; msg.textContent='thanks! signups open soon \u2014 we saved your spot in spirit.'; return;
       }
-      email.value = '';
-      msg.textContent = 'thanks! signups open soon — we saved your spot in spirit.';
+
+      msg.textContent = 'planting\u2026';
+      try {
+        if(!db) db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        var res = await db.from('signups').insert({ email: v });
+        if(res.error){
+          if(res.error.code === '23505'){ msg.textContent = "you\u2019re already on the list. nice."; }
+          else { msg.textContent = 'something went sideways. try again?'; console.error(res.error); }
+        } else {
+          email.value=''; msg.textContent='thanks! you\u2019re on the list \u2665';
+        }
+      } catch(err){
+        msg.textContent = 'something went sideways. try again?'; console.error(err);
+      }
     });
   })();
 </script>

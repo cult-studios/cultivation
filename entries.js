@@ -1,8 +1,5 @@
 /* ============================================================
-   Cultivation — Dev Journal entries
-   Edit this file to publish posts (newest first), or use the
-   Journal Editor page which regenerates it for you.
-   Block types: p, h, quote, list, img.  Inline: **bold** *italic* [text](url)
+   Cultivation Dev Journal entries
    ============================================================ */
 
 window.JOURNAL_ENTRIES = [

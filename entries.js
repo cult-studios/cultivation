@@ -54,4 +54,4 @@ window.JOURNAL_ENTRIES = [
   }
 ];
 
-window.JOURNAL_UPCOMING = {"no":"004","note":"not written yet…","seal":"star"};
+window.JOURNAL_UPCOMING = {"title":"next entry","note":"still brewing","seal":"moon"};

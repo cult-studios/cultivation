@@ -285,7 +285,7 @@
       locked.className = 'toc-row locked';
       locked.innerHTML = `
         <span class="toc-seal"><img src="assets/doodles/${up.seal || 'star'}.svg" alt=""></span>
-        <span class="toc-main"><h3>Entry No. ${up.no}</h3><div class="tsub">${up.note || 'not written yet…'}</div></span>
+        <span class="toc-main"><h3>${up.title || ('Entry No. ' + up.no)}</h3><div class="tsub">${up.note || 'not written yet…'}</div></span>
         <span class="toc-meta"><div class="no">soon</div></span>`;
       tocList.appendChild(locked);
     }

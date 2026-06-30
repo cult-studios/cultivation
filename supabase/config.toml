@@ -1,0 +1,10 @@
+# Supabase config — newsletter functions
+# Both functions handle their own auth, so disable the default JWT gate.
+
+project_id = "cultivation"
+
+[functions.announce]
+verify_jwt = false
+
+[functions.unsubscribe]
+verify_jwt = false

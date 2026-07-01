@@ -20,7 +20,7 @@ window.JOURNAL_ENTRIES = [
     "body": [
       {
         "type": "p",
-        "text": "This might be your first visit, but we've been at it for a while — an adventure that began with an offhand comment during a gaming session and planted a seed (pun intended) that wouldn't rest until it was allowed to grow."
+        "text": "This might be your first visit, but we've been at it for a while - an adventure that began with an offhand comment made during a gaming session and planted a seed (pun intended) that would not rest until it was allowed to grow."
       },
       {
         "type": "quote",
@@ -32,7 +32,7 @@ window.JOURNAL_ENTRIES = [
       },
       {
         "type": "p",
-        "text": "look at my resume and you'll see a logical trajectory of roles that seem to fit a pattern. but it doesn't really speak to my experience. i've always learned by doing - the skills I've honed, the projects I've led, the things I've accomplished, all of it traces back to that mindset."
+        "text": "if you look at my resume you'll see a logical trajectory of roles that seem to fit a pattern, but it doesn't really speak to my experience. i've always learned by doing - and the skills i've honed, the projects i've led, and the accomplishments i've had can all be attributed to that mindset. "
       },
       {
         "type": "quote",
@@ -40,11 +40,11 @@ window.JOURNAL_ENTRIES = [
       },
       {
         "type": "p",
-        "text": "okay, maybe that isn't always the best way to go about things. it works, even if it works the hard way - leading to burnout, or acknowledging that \"this thing i want doesn't exist as i imagine it, so i guess i'll have to be the one to make it\" (see the [neurospicy workbook](https://www.neurospicyworkbook.com) for another example of that pattern in action)."
+        "text": "okay, maybe that isn't always the best way to go about things, but it works... even if it leads to burnout. and sometimes it manifested as \"this thing i want doesn't exist as i imagine it, so i guess i'll have to make it\" (see the [neurospicy workbook](https://neurospicyworkbook.com/#waitlist) for another example)."
       },
       {
         "type": "p",
-        "text": "more than a year later, here's where that's landed us: a working farming loop, some basic animations, structures that are still waiting on personality. and this week, we started looking for artists to hire. that's pretty scary for me, but also **so** exciting!"
+        "text": "anyway, here we are, more than a year later, getting something done about this. we have a working farming loop, some basic animations and structures that need *personality*. and this week, we started looking for artists"
       },
       {
         "type": "p",
@@ -54,4 +54,4 @@ window.JOURNAL_ENTRIES = [
   }
 ];
 
-window.JOURNAL_UPCOMING = {"no":"004","note":"not written yet…","seal":"star"};
+window.JOURNAL_UPCOMING = {"title":"next entry","note":"still brewing","seal":"moon"};

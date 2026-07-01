@@ -33,7 +33,7 @@
   --cv-cream:        #f5f3f0;
   --cv-warm-white:   #fefdfb;
 
-  /* ---- Cultivation · Whisperwood Hollow (night / occult) ---- */
+  /* ---- Cultivation · Thistleboro Falls (night / occult) ---- */
   --vale-ink:        #0a0f0c;   /* deepest forest-night */
   --vale-night:      #0e1611;   /* page base */
   --vale-night-2:    #0b120e;   /* alt section */
@@ -175,7 +175,7 @@
   --selection-bg:    rgba(184,107,201,0.25);
 }
 
-/* ============ Cultivation — Whisperwood Hollow (night / occult) ============
+/* ============ Cultivation — Thistleboro Falls (night / occult) ============
    The dark, bioluminescent treatment: deep forest-night base, glowing
    teal + mushroom-purple, warm lantern gold, green energy. Pairs with the
    --glow-* shadow tokens below for the luminous look. */

@@ -3,8 +3,55 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="cultivation is a cozy chaos farming and life sim about growing real, slightly-illicit plants, selling them to eccentric townsfolk, and keeping one weird little farm afloat in Sagebrook." />
-<title>cultivation: grow your story, one seed at a time</title>
+
+<!-- title: brand voice stays in the tagline, genre keywords do the ranking.
+     "farming sim" + "cozy" + "life sim" are the queries; nobody googles a vibe. -->
+<title>cultivation — cozy farming &amp; life sim game | grow your story, one seed at a time</title>
+
+<meta name="description" content="cultivation is a cozy chaos farming and life sim about growing real, slightly-illicit plants, selling them to eccentric townsfolk, and keeping one weird little farm afloat in Sagebrook. in development by Cult Studios, built in Unreal Engine 5." />
+
+<!-- canonical: www.cultivation.site is where the domain resolves (apex redirects here). keep them in sync. -->
+<link rel="canonical" href="https://www.cultivation.site/" />
+
+<!-- ---------- open graph: this IS the marketing when the link hits discord ---------- -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="cultivation" />
+<meta property="og:url" content="https://www.cultivation.site/" />
+<meta property="og:title" content="cultivation — a cozy farming sim with a soft occult underbelly" />
+<meta property="og:description" content="grow real, slightly-illicit plants. sell them to a town with big opinions. keep one weird little farm afloat. a cozy farming &amp; life sim from Cult Studios." />
+<!-- TODO: swap for real 1200x630 key art when it lands — using the hero farm shot as a placeholder for now so embeds don't render blank. path appears 4 times below. -->
+<meta property="og:image" content="https://www.cultivation.site/assets/cultivation/site/farm.jpg" />
+<meta property="og:image:width" content="1700" />
+<meta property="og:image:height" content="874" />
+<meta property="og:image:alt" content="the farm: a scrappy farmhouse on a hill of yellow wildflowers" />
+
+<!-- ---------- twitter/x card (discord also reads these as fallback) ---------- -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="cultivation — a cozy farming sim with a soft occult underbelly" />
+<meta name="twitter:description" content="grow real, slightly-illicit plants. sell them to eccentric townsfolk. keep one weird little farm afloat in Sagebrook." />
+<meta name="twitter:image" content="https://www.cultivation.site/assets/cultivation/site/farm.jpg" />
+
+<!-- ---------- VideoGame schema: almost no small indies bother, easy edge ---------- -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "cultivation",
+  "url": "https://www.cultivation.site/",
+  "description": "A cozy farming and life sim about growing real, slightly-illicit plants, selling them to eccentric townsfolk, and keeping one weird little farm afloat in Sagebrook.",
+  "genre": ["Farming Simulation", "Life Simulation", "Cozy Game"],
+  "gamePlatform": "PC",
+  "playMode": "SinglePlayer",
+  "applicationCategory": "Game",
+  "operatingSystem": "Windows",
+  "image": "https://www.cultivation.site/assets/cultivation/site/farm.jpg",
+  "author": { "@type": "Organization", "name": "Cult Studios", "url": "https://cultstudios.store/" },
+  "publisher": { "@type": "Organization", "name": "Cult Studios", "url": "https://cultstudios.store/" }
+}
+</script>
+<!-- when there's a steam page, add inside the JSON above:
+     "offers": {"@type": "Offer", "url": "STEAM_URL", "availability": "https://schema.org/PreOrder"} -->
+
 <link rel="icon" type="image/png" href="assets/brand/cult-favicon.png" />
 <link rel="stylesheet" href="styles.css" />
 <script>
@@ -175,6 +222,9 @@
   .socials a:hover img{filter:grayscale(.1) opacity(.9)}
   .socials a:hover::after{content:"coming soon";position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:#160f22;border:1px solid rgba(232,168,77,.5);border-radius:999px;padding:4px 10px}
   .fineprint{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--mono);font-size:11px;color:#9a8aa6;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .cult-network{margin-top:24px;font-size:13px;color:#cdbfd6}
+  .cult-network a{color:var(--teal)}
+  .cult-network a:hover{text-decoration:underline}
 
   @media (max-width:980px){
     .nav-links{display:none}
@@ -434,6 +484,9 @@
         <a title="Instagram: coming soon"><img src="assets/icons/social/instagram.png" alt="Instagram" /></a>
         <a title="YouTube: coming soon"><img src="assets/icons/social/youtube.png" alt="YouTube" /></a>
       </div>
+    </div>
+    <div class="cult-network">
+      <p>from the cult studios family: <a href="https://cultstudios.store/">cult studios, shirts &amp; mugs for the chronically online</a> · <a href="https://www.neurospicyworkbook.com/">neurospicy workbook, tools for brains that work differently</a></p>
     </div>
     <div class="fineprint">
       <span>© 2026 cultivation · Cult Studios. grow responsibly.</span>

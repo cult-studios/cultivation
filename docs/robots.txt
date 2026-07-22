@@ -1,0 +1,5 @@
+# cultivation.site — everything's public, come on in
+User-agent: *
+Allow: /
+
+Sitemap: https://www.cultivation.site/sitemap.xml

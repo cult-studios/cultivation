@@ -2,17 +2,23 @@ name: Supabase Keep-Alive
 
 on:
   schedule:
-    # Runs at 12:00 UTC every Monday and Thursday - well under the 7-day pause window
-    - cron: '0 12 * * 1,4'
+    # Runs daily at 12:00 UTC - daily cadence gives buffer against GitHub's
+    # scheduled-cron delays, which aren't guaranteed to fire exactly on time
+    - cron: '0 12 * * *'
   workflow_dispatch: {} # lets you trigger it manually from the Actions tab to test
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase REST API
+      - name: Ping Supabase _keepalive table
         run: |
-          curl -s -o /dev/null -w "%{http_code}" \
-            "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            "${{ secrets.SUPABASE_URL }}/rest/v1/_keepalive?select=pinged_at&limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}"
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+          echo "HTTP status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "Ping failed - project may be paused or key/table missing."
+            exit 1
+          fi

@@ -222,6 +222,13 @@
   <script>
     const ENTRIES = window.JOURNAL_ENTRIES || [];
 
+    // ---- caption -> plain image description: drops link/bold/italic syntax ----
+    function altText(s) {
+      return String(s || "")
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\*\*|\*/g, "")
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
     // ---- tiny inline formatter: **bold**  *italic*  [text](url) ----
     function inline(s) {
       s = String(s)
@@ -239,7 +246,7 @@
         case "h":     return `<h3 class="bh">${inline(b.text)}</h3>`;
         case "quote": return `<blockquote class="bq">${inline(b.text)}</blockquote>`;
         case "list":  return `<ul class="bl">${(b.items||[]).map(it => `<li>${inline(it)}</li>`).join("")}</ul>`;
-        case "img":   return `<figure class="bf"><img src="${b.src}" alt="${(b.caption||"").replace(/"/g,"&quot;")}">${b.caption ? `<figcaption>${inline(b.caption)}</figcaption>` : ""}</figure>`;
+        case "img":   return `<figure class="bf"><img src="${b.src}" alt="${altText(b.caption)}">${b.caption ? `<figcaption>${inline(b.caption)}</figcaption>` : ""}</figure>`;
         case "p":
         default:      return `<p class="body${isFirst ? " drop" : ""}">${inline(b.text)}</p>`;
       }

@@ -46,10 +46,16 @@ function block(b, isFirst) {
     case "h": return `<h3 class="bh">${inline(b.text)}</h3>`;
     case "quote": return `<blockquote class="bq">${inline(b.text)}</blockquote>`;
     case "list": return `<ul class="bl">${(b.items || []).map((it) => `<li>${inline(it)}</li>`).join("")}</ul>`;
-    case "img": return `<figure class="bf"><img src="../${b.src}" alt="${esc(b.caption || "")}">${b.caption ? `<figcaption>${inline(b.caption)}</figcaption>` : ""}</figure>`;
+    case "img": return `<figure class="bf"><img src="../${b.src}" alt="${altText(b.caption)}">${b.caption ? `<figcaption>${inline(b.caption)}</figcaption>` : ""}</figure>`;
     case "p":
     default: return `<p class="body${isFirst ? " drop" : ""}">${inline(b.text)}</p>`;
   }
+}
+
+// caption -> plain image description: drops link/bold/italic syntax
+// (keep in sync with altText() in journal.html)
+function altText(s) {
+  return esc(String(s || "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\*\*|\*/g, "")).replace(/"/g, "&quot;");
 }
 
 function plainSummary(entry) {

@@ -7,6 +7,42 @@
 
 window.JOURNAL_ENTRIES = [
   {
+    "no": "003",
+    "date": "October 5, 2026",
+    "seal": "gem",
+    "title": "the ineffable granma gem!",
+    "sub": "our tutorial npc and the first of the characters to come to life",
+    "tags": [],
+    "body": [
+      {
+        "type": "quote",
+        "text": "Sweet, spacey, ex-hippie who bakes \"special\" sweets and has a secret wild past"
+      },
+      {
+        "type": "p",
+        "text": "I was envisioning a miss frizzle type who grew up with a penchant for gardening (and *gardening* iykyk), holding onto her helpful nature through it all (though she's definitely Been Through It)."
+      },
+      {
+        "type": "p",
+        "text": "gem is our mentor character, and her hobbies include gardening, knitting, chatting up anyone who passes into her line of sight, and hanging out on her front porch, you can check out her [pinterest board](https://www.pinterest.com/cult_studios/cultivation/granma-gem-the-mentor/) to get a better idea of some of the visuals we had in mind"
+      },
+      {
+        "type": "img",
+        "src": "assets/cultivation/journal/granma-gem-2d.webp",
+        "caption": "the concept art by our 2D artist, [rio](https://riolart.carrd.co/), felt like it was beamed right out of my brain, we couldn't be happier with the way it turned out"
+      },
+      {
+        "type": "img",
+        "src": "assets/cultivation/journal/granma-gem.jpg",
+        "caption": "the 3D version of gem comes courtesy of [bixbite](https://www.artstation.com/bjdj1), who was able to take rio's style and turn it into a phenomenal model"
+      },
+      {
+        "type": "p",
+        "text": "this has been such a great experience and we can't wait to see granma gem come to life in our game! we'll be sharing more characters as their designs are finalized, and we hope you're as excited to see the progress as we are :) "
+      }
+    ]
+  },
+  {
     "no": "002",
     "date": "July 22, 2026",
     "seal": "leaf",

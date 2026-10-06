@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://www.cultivation.site/journal.html</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -23,6 +23,12 @@
   <url>
     <loc>https://www.cultivation.site/journal/002-quick-update-we-found-our-artist-s.html</loc>
     <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.cultivation.site/journal/003-the-ineffable-granma-gem.html</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

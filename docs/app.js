@@ -799,7 +799,7 @@ function Footer() {
       margin: "0 auto 24px",
       lineHeight: 1.6
     }
-  }, "currently growing in Unreal Engine 5. a cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow."), /*#__PURE__*/React.createElement("div", {
+  }, "currently growing in Unity. a cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       justifyContent: "center",

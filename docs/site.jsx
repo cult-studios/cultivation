@@ -269,7 +269,7 @@ function Footer() {
         <Doodle name="leaf" size={20} tint="teal" glow /> cultivation
       </div>
       <p style={{ fontFamily: sans, fontSize: 14, color: BODY, maxWidth: 480, margin: "0 auto 24px", lineHeight: 1.6 }}>
-        currently growing in Unreal Engine 5. a cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow.
+        currently growing in Unity. a cozy game about plants, community, and questionable business decisions, set in Sagebrook and Whisperwood Hollow.
       </p>
       <div style={{ display: "flex", justifyContent: "center", gap: 14, marginBottom: 24 }}>
         {SOCIAL.map(([f, label]) => (
